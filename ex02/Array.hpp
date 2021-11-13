@@ -55,11 +55,6 @@ class Array
 				return (_array[pos]);
 		}
 
-		// T getArray(unsigned int pos) const
-		// {
-		// 	return (_array[pos]);
-		// }
-
 		unsigned int	size() const
 		{
 			return (_size);

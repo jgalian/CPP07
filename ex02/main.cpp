@@ -1,8 +1,12 @@
 #include "Array.hpp"
 #include <iostream>
+#include "Point.hpp"
 
 int	main()
 {
+	{
+		Array<int> array;
+	}
 	try
 	{
 		Array<int> array(3);
@@ -11,6 +15,7 @@ int	main()
 		array[2] = 12;
 		std::cout << array[1] << std::endl;
 		Array<int> array2(array);
+		std::cout << array2[0] << std::endl;
 		array2[0] = 42;
 		std::cout << array[0] << std::endl;
 		std::cout << array2[0] << std::endl;
@@ -38,14 +43,34 @@ int	main()
 		std::cerr << e.what() << '\n';
 		return (-1);
 	}
-
+	std::cout << std::endl;
+	try
+	{
+		Array<Point> point(3);
+		point[0].setCoords(1, 2);
+		point[1].setCoords(3, 4);
+		point[2].setCoords(5, 6);
+		point[1].printCoords();
+		Array<Point> point2(point);
+		point2[1].printCoords();
+		point2[1].setCoords(7, 8);
+		point2[1].printCoords();
+		point2[5].setCoords(0, 4);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		return (-1);
+	}
+	std::cout << std::endl;
 	return (0);
 }
+
 
 // #define MAX_VAL 750
 // int main(int, char**)
 // {
-//     Array<int> numbers(MAX_VAL);
+// 	Array<int> numbers(MAX_VAL);
 //     int* mirror = new int[MAX_VAL];
 //     srand(time(NULL));
 //     for (int i = 0; i < MAX_VAL; i++)

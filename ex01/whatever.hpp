@@ -2,19 +2,13 @@
 # define WHATEVER_HPP
 
 template < typename T >
-void	increment(T & index)
+void print( T const & index )
 {
-	index += 1;
+	std::cout << index << std::endl;
 }
 
 template < typename T >
-void	print(T & index )
-{
-	std::cout << index << " ";
-}
-
-template < typename T >
-void	iter(T * array, unsigned int const length, void (*f)(T & index))
+void	iter(T * array, unsigned int const length, void (*f)(T const & index))
 {
 	for (unsigned int i = 0; i < length; i++)
 		f(array[i]);
